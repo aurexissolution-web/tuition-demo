@@ -14,6 +14,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
   title: {
     default: `${BUSINESS.name} — ${BUSINESS.tagline}`,
     template: `%s | ${BUSINESS.name}`,
@@ -27,6 +30,14 @@ export const metadata: Metadata = {
     "tuisyen sekolah rendah",
     "tuisyen pulau pinang",
   ],
+  openGraph: {
+    type: "website",
+    locale: "ms_MY",
+    title: `${BUSINESS.name} — ${BUSINESS.tagline}`,
+    description:
+      "Pusat tuisyen premium di Kepala Batas untuk Darjah 2–6 & Kelas Membaca.",
+    siteName: BUSINESS.name,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
